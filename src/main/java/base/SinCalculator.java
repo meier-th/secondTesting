@@ -4,28 +4,33 @@ import java.math.BigDecimal;
 
 public class SinCalculator {
 
-    private BigDecimal factorial;
+    private final static int ELEMS_NUM = 9;
+
+    private long factorial;
     private int seriesElem;
+    private int sign;
 
     public double sin(double arg) {
-        factorial = BigDecimal.ONE;
+        factorial = 1;
         seriesElem = 0;
+        sign = 1;
         double result = 0;
-        for (int i = 0; i < 100; ++i) {
+        for (int i = 0; i < ELEMS_NUM; ++i) {
             result += nextSeriesElem(arg);
         }
         return result;
     }
 
     private double nextSeriesElem(double arg) {
-        double elem = BigDecimal.valueOf(Math.pow(arg, 2*seriesElem+1)).divide(factorial).doubleValue();
+        double elem = sign * Math.pow(arg, 2*seriesElem+1) / factorial;
         seriesElem++;
         updateFactorial();
+        sign *= -1;
         return elem;
     }
 
     private void updateFactorial() {
-        factorial = factorial.multiply(factorial.add(BigDecimal.ONE)).multiply(factorial.add(BigDecimal.valueOf(2)));
+        factorial = factorial * (2*seriesElem+1)*(2*seriesElem);
     }
 
 }

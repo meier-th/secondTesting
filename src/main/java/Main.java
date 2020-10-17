@@ -6,8 +6,9 @@ public class Main {
         SinCalculator calc = new SinCalculator();
         System.out.println(calc.sin(0));
         System.out.println(calc.sin(Math.PI/2));
-        System.out.println(calc.sin(Math.PI));
-        System.out.println(calc.sin(15*Math.PI));
+        System.out.println(calc.sin(Math.PI/4));
+        System.out.println(calc.sin(Math.PI/6));
+        System.out.println(calc.sin(Math.PI/3));
     }
 
 }
