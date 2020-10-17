@@ -1,23 +1,19 @@
-import aux.*;
-import base.LnCalculator;
-import base.SinCalculator;
 import base.TestFunction;
+import impl.LogarifmicExpression;
+import impl.TrigonometricExpression;
 
 public class Main {
 
     public static void main(String[] args) {
-        /*printTrigFuncs(SinCalculator.getInstance());
-        printTrigFuncs(CosCalculator.getInstance());
-        printTrigFuncs(TanCalculator.getInstance());
-        printTrigFuncs(CotCalculator.getInstance());
-        printTrigFuncs(CscCalculator.getInstance());
-        System.out.println("KEKEKEKEKEKEKKEKEKEKE");*/
+        System.out.println(calc(0));
+        System.out.println(calc(15));
+        System.out.println(calc(-5));
+    }
 
-        //printLogFuncs(Log3Calculator.getInstance());
-        //printLogFuncs(Log5Calculator.getInstance());
-        printLogFuncs(LgCalculator.getInstance());
-        //printLogFuncs(LnCalculator.getInstance());
-
+    private static double calc(double arg) {
+        if (arg <= 0)
+            return TrigonometricExpression.compute(arg);
+        return LogarifmicExpression.compute(arg);
     }
 
     private static void printTrigFuncs(TestFunction function) {
@@ -29,14 +25,14 @@ public class Main {
     }
 
     private static void printLogFuncs(TestFunction function) {
-        /*System.out.println(function.fun(Math.E));
+        System.out.println(function.fun(Math.E));
         System.out.println(function.fun(Math.E*Math.E));
         System.out.println(function.fun(1/Math.E));
         System.out.println(function.fun(3));
-        System.out.println(function.fun(9));*/
-        /*System.out.println(function.fun(5));
+        System.out.println(function.fun(9));
+        System.out.println(function.fun(5));
         System.out.println(function.fun(0.2));
-        System.out.println(function.fun(125));*/
+        System.out.println(function.fun(125));
         System.out.println(function.fun(10));
         System.out.println(function.fun(0.1));
 
