@@ -14,6 +14,9 @@ repositories {
 dependencies {
     testRuntime("org.junit.jupiter:junit-jupiter-engine:5.5.2")
     testRuntime("org.junit.platform:junit-platform-runner:1.5.2")
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-params
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: '5.7.0'
+
 }
 
 test {
