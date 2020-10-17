@@ -1,8 +1,8 @@
 package base;
 
-public class LogCalculator implements TestFunction {
+public class LnCalculator implements TestFunction {
 
-    private final static LogCalculator INSTANCE = new LogCalculator();
+    private final static LnCalculator INSTANCE = new LnCalculator();
 
     @Override
     public double fun(double arg) {
@@ -19,7 +19,7 @@ public class LogCalculator implements TestFunction {
         return 2*result;
     }
 
-    public static LogCalculator getInstance() {
+    public static LnCalculator getInstance() {
         return INSTANCE;
     }
 
