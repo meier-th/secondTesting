@@ -2,15 +2,17 @@ package base;
 
 import java.math.BigDecimal;
 
-public class SinCalculator {
+public class SinCalculator implements TestFunction {
 
     private final static int ELEMS_NUM = 9;
 
     private long factorial;
     private int seriesElem;
     private int sign;
+    private static final SinCalculator INSTANCE = new SinCalculator();
 
-    public double sin(double arg) {
+    @Override
+    public double fun(double arg) {
         factorial = 1;
         seriesElem = 0;
         sign = 1;
@@ -19,6 +21,10 @@ public class SinCalculator {
             result += nextSeriesElem(arg);
         }
         return result;
+    }
+
+    public static SinCalculator getInstance() {
+        return INSTANCE;
     }
 
     private double nextSeriesElem(double arg) {
