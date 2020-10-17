@@ -1,3 +1,6 @@
+import aux.CotCalculator;
+import aux.CscCalculator;
+import aux.TanCalculator;
 import base.CosCalculator;
 import base.LogCalculator;
 import base.SinCalculator;
@@ -9,6 +12,9 @@ public class Main {
         printFuncs(SinCalculator.getInstance());
         printFuncs(CosCalculator.getInstance());
 //        printFuncs(new LogCalculator(5));
+        printFuncs(TanCalculator.getInstance());
+        printFuncs(CotCalculator.getInstance());
+        printFuncs(CscCalculator.getInstance());
     }
 
     private static void printFuncs(TestFunction function) {
