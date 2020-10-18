@@ -41,7 +41,7 @@ public class TestLnCalculator {
     }
 
     public static Stream<Double> getDataSet() {
-        return Stream.of(Math.pow(Math.E, -5), Math.pow(Math.E, -1), Math.pow(Math.E, 1), Math.E, Math.pow(Math.E, 4), Math.pow(Math.E, 10));
+        return Stream.of(Math.pow(Math.E, -5), Math.pow(Math.E, -1), Math.sqrt(Math.E), Math.E, Math.pow(Math.E, 2.5), Math.pow(Math.E, 4), Math.pow(Math.E, 10));
     }
 
     @Test
