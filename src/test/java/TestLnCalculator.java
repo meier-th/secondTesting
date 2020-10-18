@@ -1,12 +1,14 @@
 import base.LnCalculator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestLnCalculator {
 
@@ -40,6 +42,15 @@ public class TestLnCalculator {
 
     public static Stream<Double> getDataSet() {
         return Stream.of(Math.pow(Math.E, -5), Math.pow(Math.E, -1), Math.pow(Math.E, 1), Math.E, Math.pow(Math.E, 4), Math.pow(Math.E, 10));
+    }
+
+    @Test
+    @DisplayName(value = "Invalid argument test")
+    public void testIncorrectArgument() {
+        LnCalculator calc = LnCalculator.getInstance();
+        assertThrows(IllegalArgumentException.class, () -> calc.fun(0));
+        assertThrows(IllegalArgumentException.class, () -> calc.fun(-0.1));
+        assertThrows(IllegalArgumentException.class, () -> calc.fun(-10));
     }
 
 }

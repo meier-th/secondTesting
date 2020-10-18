@@ -6,6 +6,8 @@ public class LnCalculator implements TestFunction {
 
     @Override
     public double fun(double arg) {
+        if (arg <= 0)
+            throw new IllegalArgumentException("ln(x) arg cannot be negative or 0");
         int elemNum;
         if (arg < 1000)
             elemNum = 1000;

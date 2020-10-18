@@ -10,6 +10,8 @@ public class Log5Calculator implements TestFunction {
 
     @Override
     public double fun(double arg) {
+        if (arg <= 0)
+            throw new IllegalArgumentException("log5(x) arg cannot be negative or 0");
         if (lnCalc == null)
             lnCalc = LnCalculator.getInstance();
         return lnCalc.fun(arg)/lnCalc.fun(5);
