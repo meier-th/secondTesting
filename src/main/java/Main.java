@@ -1,13 +1,17 @@
-import base.TestFunction;
+import base.LnCalculator;
+import base.SinCalculator;
 import impl.LogarifmicExpression;
 import impl.TrigonometricExpression;
+
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.function.Function;
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(calc(0));
-        System.out.println(calc(15));
-        System.out.println(calc(-5));
+        printToCsv("sin.csv", SinCalculator.getInstance()::fun, -Math.PI/6, 13*Math.PI/6, Math.PI/6);
+        printToCsv("ln.csv", LnCalculator.getInstance()::fun, 0.1, Math.pow(Math.E, 3), 0.1);
     }
 
     private static double calc(double arg) {
@@ -16,26 +20,17 @@ public class Main {
         return LogarifmicExpression.compute(arg);
     }
 
-    private static void printTrigFuncs(TestFunction function) {
-        System.out.println(function.fun(0));
-        System.out.println(function.fun(Math.PI/2));
-        System.out.println(function.fun(Math.PI/4));
-        System.out.println(function.fun(Math.PI/6));
-        System.out.println(function.fun(Math.PI/3));
-    }
-
-    private static void printLogFuncs(TestFunction function) {
-        System.out.println(function.fun(Math.E));
-        System.out.println(function.fun(Math.E*Math.E));
-        System.out.println(function.fun(1/Math.E));
-        System.out.println(function.fun(3));
-        System.out.println(function.fun(9));
-        System.out.println(function.fun(5));
-        System.out.println(function.fun(0.2));
-        System.out.println(function.fun(125));
-        System.out.println(function.fun(10));
-        System.out.println(function.fun(0.1));
-
+    private static void printToCsv(String filename, Function<Double, Double> function, double argMin, double argMax, double argStep) {
+        try {
+            Path resultFile = Paths.get(filename);
+            if (Files.exists(resultFile))
+                Files.delete(resultFile);
+            Files.createFile(resultFile);
+            for (double x = argMin; x <= argMax; x += argStep)
+                Files.write(resultFile, String.format("%f,%f,\n", x, function.apply(x)).getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException error) {
+            System.out.println(error.getMessage());
+        }
     }
 
 }
