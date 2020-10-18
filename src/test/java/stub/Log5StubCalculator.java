@@ -1,8 +1,9 @@
 package stub;
 
+import aux.Log5Calculator;
 import base.TestFunction;
 
-public class Log5StubCalculator implements TestFunction {
+public class Log5StubCalculator extends Log5Calculator {
 
     private final static Log5StubCalculator INSTANCE = new Log5StubCalculator();
 

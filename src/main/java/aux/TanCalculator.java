@@ -6,17 +6,24 @@ import base.TestFunction;
 
 public class TanCalculator implements TestFunction {
     private static final TanCalculator INSTANCE = new TanCalculator();
-    private TestFunction sinCalc;
+    private SinCalculator sinCalc;
+    private CosCalculator cosCalc;
+
+    public TanCalculator(SinCalculator sinCalc, CosCalculator cosCalculator) {
+        this.sinCalc = sinCalc;
+        this.cosCalc = cosCalculator;
+    }
+
+    public TanCalculator() {
+    }
 
     @Override
     public double fun(double arg) {
-        if (sinCalc == null)
+        if (sinCalc == null) {
             sinCalc = SinCalculator.getInstance();
-        return sinCalc.fun(arg) / CosCalculator.getInstance().fun(arg);
-    }
-
-    public void setSinCalc(TestFunction sin) {
-        this.sinCalc = sin;
+            cosCalc = CosCalculator.getInstance();
+        }
+        return sinCalc.fun(arg) / cosCalc.fun(arg);
     }
 
     public static TanCalculator getInstance() {

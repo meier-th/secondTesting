@@ -1,8 +1,9 @@
 package stub;
 
+import base.SinCalculator;
 import base.TestFunction;
 
-public class SinStubCalculator implements TestFunction {
+public class SinStubCalculator extends SinCalculator {
 
     private final static SinStubCalculator INSTANCE = new SinStubCalculator();
 

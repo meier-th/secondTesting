@@ -1,8 +1,9 @@
 package stub;
 
+import base.LnCalculator;
 import base.TestFunction;
 
-public class LnStubCalculator implements TestFunction {
+public class LnStubCalculator extends LnCalculator {
 
     private final static LnStubCalculator INSTANCE = new LnStubCalculator();
 

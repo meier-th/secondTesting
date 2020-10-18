@@ -1,8 +1,9 @@
 package stub;
 
+import aux.LgCalculator;
 import base.TestFunction;
 
-public class LgStubCalculator implements TestFunction {
+public class LgStubCalculator extends LgCalculator {
 
     private final static LgStubCalculator INSTANCE = new LgStubCalculator();
 

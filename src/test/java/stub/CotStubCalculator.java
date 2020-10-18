@@ -1,8 +1,9 @@
 package stub;
 
+import aux.CotCalculator;
 import base.TestFunction;
 
-public class CotStubCalculator implements TestFunction {
+public class CotStubCalculator extends CotCalculator {
 
     private final static CotStubCalculator INSTANCE = new CotStubCalculator();
 

@@ -1,7 +1,6 @@
 import base.LnCalculator;
 import base.SinCalculator;
-import impl.LogarifmicExpression;
-import impl.TrigonometricExpression;
+import impl.WholeExpression;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -15,9 +14,7 @@ public class Main {
     }
 
     private static double calc(double arg) {
-        if (arg <= 0)
-            return TrigonometricExpression.compute(arg);
-        return LogarifmicExpression.compute(arg);
+        return new WholeExpression().compute(arg);
     }
 
     private static void printToCsv(String filename, Function<Double, Double> function, double argMin, double argMax, double argStep) {

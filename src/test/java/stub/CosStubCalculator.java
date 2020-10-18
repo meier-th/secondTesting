@@ -1,8 +1,8 @@
 package stub;
 
-import base.TestFunction;
+import base.CosCalculator;
 
-public class CosStubCalculator implements TestFunction {
+public class CosStubCalculator extends CosCalculator {
 
     private final static CosStubCalculator INSTANCE = new CosStubCalculator();
 

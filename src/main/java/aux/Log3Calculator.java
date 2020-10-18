@@ -8,6 +8,13 @@ public class Log3Calculator implements TestFunction {
     private static final Log3Calculator INSTANCE = new Log3Calculator();
     private TestFunction lnCalc;
 
+    public Log3Calculator() {
+    }
+
+    public Log3Calculator(TestFunction lnCalc) {
+        this.lnCalc = lnCalc;
+    }
+
     @Override
     public double fun(double arg) {
         if (arg <= 0)

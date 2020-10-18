@@ -1,8 +1,9 @@
 package stub;
 
+import aux.TanCalculator;
 import base.TestFunction;
 
-public class TanStubCalculator implements TestFunction {
+public class TanStubCalculator extends TanCalculator {
 
     private final static TanStubCalculator INSTANCE = new TanStubCalculator();
 

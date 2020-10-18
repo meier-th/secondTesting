@@ -18,7 +18,7 @@ public interface StubTables {
     Map<Double, Double> cscTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::asin));
 
     Map<Double, Double> lnTable = logArgs.stream().collect(Collectors.toMap(arg -> arg, Math::log));
-    Map<Double, Double> log3Table = logArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> Math.log(arg)/Math.log(3)));
-    Map<Double, Double> log5Table = logArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> Math.log(arg)/Math.log(5)));
-    Map<Double, Double> lgTable = logArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> Math.log(arg)/Math.log(10)));
+    Map<Double, Double> log3Table = logArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> Math.log(arg) / Math.log(3)));
+    Map<Double, Double> log5Table = logArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> Math.log(arg) / Math.log(5)));
+    Map<Double, Double> lgTable = logArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> Math.log(arg) / Math.log(10)));
 }

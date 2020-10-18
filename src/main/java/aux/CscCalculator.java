@@ -7,6 +7,13 @@ public class CscCalculator implements TestFunction {
     private static final CscCalculator INSTANCE = new CscCalculator();
     private TestFunction sinCalc;
 
+    public CscCalculator() {
+    }
+
+    public CscCalculator(TestFunction sinCalc) {
+        this.sinCalc = sinCalc;
+    }
+
     @Override
     public double fun(double arg) {
         if (sinCalc == null)

@@ -8,6 +8,13 @@ public class LgCalculator implements TestFunction {
     private static final LgCalculator INSTANCE = new LgCalculator();
     private TestFunction lnCalc;
 
+    public LgCalculator(TestFunction lnCalc) {
+        this.lnCalc = lnCalc;
+    }
+
+    public LgCalculator() {
+    }
+
     @Override
     public double fun(double arg) {
         if (arg <= 0)
