@@ -6,11 +6,17 @@ import base.TestFunction;
 public class LgCalculator implements TestFunction {
 
     private static final LgCalculator INSTANCE = new LgCalculator();
+    private TestFunction lnCalc;
 
     @Override
     public double fun(double arg) {
-        LnCalculator calc = LnCalculator.getInstance();
-        return calc.fun(arg)/calc.fun(10);
+        if (lnCalc == null)
+            lnCalc = LnCalculator.getInstance();
+        return lnCalc.fun(arg)/lnCalc.fun(10);
+    }
+
+    public void setLnCalc(TestFunction ln) {
+        this.lnCalc = ln;
     }
 
     public static LgCalculator getInstance() {
