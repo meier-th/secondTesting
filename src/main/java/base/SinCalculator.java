@@ -9,10 +9,21 @@ public class SinCalculator implements TestFunction {
     @Override
     public double fun(double arg) {
         double result = 0;
+        int sign = 1;
+        if (arg < 0) {
+            sign *= -1;
+            arg = Math.abs(arg);
+        }
         arg %= Math.PI*2;
+        if (arg > Math.PI) {
+            sign *= -1;
+            arg -= Math.PI;
+        }
+        if (arg > Math.PI/2)
+            arg = Math.PI - arg;
         for (int i = 0; i < ELEMS_NUM; ++i)
             result += getSeriesElem(i, arg);
-        return result;
+        return sign*result;
     }
 
     public static SinCalculator getInstance() {
