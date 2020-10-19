@@ -27,8 +27,8 @@ public interface StubTables {
     Map<Double, Double> sinTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::sin));
     Map<Double, Double> cosTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::cos));
     Map<Double, Double> tanTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::tan));
-    Map<Double, Double> cotTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::atan));
-    Map<Double, Double> cscTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::asin));
+    Map<Double, Double> cotTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> 1 / Math.tan(arg)));
+    Map<Double, Double> cscTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> 1 / Math.sin(arg)));
 
     Map<Double, Double> lnTable = logArgs.stream().collect(Collectors.toMap(arg -> arg, Math::log));
     Map<Double, Double> log3Table = logArgs.stream().collect(Collectors.toMap(arg -> arg, arg -> Math.log(arg) / Math.log(3)));
