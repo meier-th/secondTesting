@@ -6,10 +6,23 @@ import java.util.stream.Collectors;
 
 public interface StubTables {
 
-    List<Double> trigArgs = List.of(0d, Math.PI/6, Math.PI/3, Math.PI/2, 2*Math.PI/3, 5*Math.PI/6, Math.PI, 7*Math.PI/6,
-            4*Math.PI/3, 3*Math.PI/2, 5*Math.PI/3, 11*Math.PI/6, 2*Math.PI, -Math.PI/6, 13*Math.PI/6);
-    List<Double> logArgs = List.of(Math.pow(Math.E, -5), Math.pow(Math.E, -1), Math.sqrt(Math.E), Math.E,
-            Math.pow(Math.E, 2.5), Math.pow(Math.E, 4), Math.pow(Math.E, 10));
+    List<Double> trigArgs = List.of(-Math.PI,
+            -2.5,
+            -2.1,
+            -0.69 * Math.PI,
+            -0.19 * Math.PI,
+            -0.55,
+            0.0);
+    List<Double> logArgs = List.of(0.5,
+            0.8,
+            1.0,
+            1.5,
+            3.0,
+            4.0,
+            5.0,
+            4.172,
+            4.5,
+            10.0);
 
     Map<Double, Double> sinTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::sin));
     Map<Double, Double> cosTable = trigArgs.stream().collect(Collectors.toMap(arg -> arg, Math::cos));
