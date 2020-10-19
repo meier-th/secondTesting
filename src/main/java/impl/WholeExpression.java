@@ -32,26 +32,26 @@ public class WholeExpression {
 
     public double compute(double arg) {
         if (arg <= 0)
-            return WholeExpression.TrigonometricExpression.compute(arg);
-        return WholeExpression.LogarithmicExpression.compute(arg);
+            return new WholeExpression.TrigonometricExpression().compute(arg);
+        return new WholeExpression.LogarithmicExpression().compute(arg);
     }
 
-    private static class LogarithmicExpression {
+    private class LogarithmicExpression {
 
-        public static double compute(double arg) {
-            final double log3 = Log3Calculator.getInstance().fun(arg);
-            final double log5 = Log5Calculator.getInstance().fun(arg);
-            final double lg = LgCalculator.getInstance().fun(arg);
+        public double compute(double arg) {
+            final double log3 = log3Calculator.fun(arg);
+            final double log5 = log5Calculator.fun(arg);
+            final double lg = lgCalculator.fun(arg);
             return Math.pow((Math.pow(log5, 3) - lg)/(Math.pow(lg, 3)*log3), 2);
         }
 
     }
 
-    private static final class TrigonometricExpression {
-        public static double compute(double x) {
-            final double tan = TanCalculator.getInstance().fun(x);
-            final double cot = CotCalculator.getInstance().fun(x);
-            final double csc = CscCalculator.getInstance().fun(x);
+    private final class TrigonometricExpression {
+        public double compute(double x) {
+            final double tan = tanCalculator.fun(x);
+            final double cot = cotCalculator.fun(x);
+            final double csc = cscCalculator.fun(x);
             final double sqrCot = cot * cot;
             final double expr1 = Math.pow((sqrCot + cot) / (tan * csc), 3);
             return Math.pow(expr1, 3);
